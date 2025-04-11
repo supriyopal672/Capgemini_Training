@@ -3,8 +3,9 @@
 This repository contains training materials, exercises, and projects completed during the **Capgemini Training Program**.  
 
 ## 📂 Repository Contents  
-- **Code samples** – Hands-on practice programs  
-- **Projects** – Implemented assignments   
+- **Code samples** – Hands-on practice programs
+- **Materials** – Text Definitons/PDFs 
+- **Case Studys** – Implemented assignments   
 
 ## 🛠️ Technologies Covered  
 - Java
