@@ -1,0 +1,11 @@
+💡 Applications of Trees
+
+Application Area		Use Case
+Binary Search Trees		Fast searching & sorting
+Heaps				Priority Queues, Heap Sort
+Tries				Autocomplete, Spell check
+AVL/Red-Black Trees		Self-balancing maps/sets in libraries
+B-Trees/B+ Trees		Database indexing
+Segment Tree			Range queries, competitive programming
+Decision Trees			Machine learning, decision analysis
+HTML/XML Parsing		Tree structures represent DOM

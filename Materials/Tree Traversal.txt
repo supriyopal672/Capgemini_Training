@@ -1,0 +1,214 @@
+Tree Traversals
+
+Tree traversals help us visit all nodes of a tree in different sequences depending on the task or algorithm we’re implementing.
+
+1. ✅ Depth-First Traversal (DFT) (DFS- Depth First Search)
+Inorder (Left → Root → Right) → used in BST for sorted output
+
+Preorder (Root → Left → Right) → used for copying trees
+
+Postorder (Left → Right → Root) → used for deleting trees
+
+🌿 1. Inorder Traversal (Left → Root → Right)
+✅ Why it's used:
+To get elements in sorted order from a Binary Search Tree (BST).
+
+Useful for searching, displaying, or validating BST properties.
+
+🧠 Applications:
+Printing BST in ascending order.
+
+Checking whether a binary tree is a BST.
+
+✅ Example:
+For a BST:
+
+      10
+     /  \
+    5   20
+➡️ Inorder = 5 10 20 ✅ (sorted)
+
+🌱 2. Preorder Traversal (Root → Left → Right)
+✅ Why it's used:
+To copy a tree structure (parent processed before children).
+
+To serialize a tree (convert to storable form).
+
+Useful in expression trees (prefix notation).
+
+🧠 Applications:
+Tree cloning / copying.
+
+Exporting or serializing a tree.
+
+Prefix expression evaluation (e.g., +AB).
+
+✅ Example:
+Same tree:
+
+
+      10
+     /  \
+    5   20
+➡️ Preorder = 10 5 20
+
+🍂 3. Postorder Traversal (Left → Right → Root)
+✅ Why it's used:
+To delete/free a tree bottom-up.
+
+To evaluate postfix expressions (in expression trees).
+
+Children are processed before parent.
+
+🧠 Applications:
+Postfix evaluation (e.g., AB+).
+
+Safely deleting nodes (memory cleanup).
+
+Computing size/depth of a tree.
+
+✅ Example:
+
+      10
+     /  \
+    5   20
+➡️ Postorder = 5 20 10
+
+📝 Summary Table
+
+Traversal		Order		Use Cases
+Inorder		Left → Root → Right	Get sorted output from BST
+Preorder	Root → Left → Right	Copy, serialize tree, prefix notation
+Postorder	Left → Right → Root	Delete, evaluate postfix, free memory
+
+
+
+POST-ORDER TRAVERSAL: left-->right-->root
+
+void postorder(Node root) {
+    if (root == null) return;
+
+    postorder(root.left);   // Traverse left subtree
+    postorder(root.right);  // Traverse right subtree
+    System.out.print(root.data + " "); // Visit root
+}
+
+
+        10
+       /  \
+     5     15
+    / \    /
+   2   7  12
+
+🔁 Postorder Traversal Visits:
+Left subtree → 2 → 7 → 5
+
+Right subtree → 12 → 15
+
+Root → 10
+
+✅ Output: 2 7 5 12 15 10
+
+
+
+PRE-ORDER TRAVERSAL: root-->left-->right
+
+void preorder(Node root) {
+    if (root == null) return;
+
+    System.out.print(root.data + " "); // Visit root
+    preorder(root.left);              // Traverse left subtree
+    preorder(root.right);             // Traverse right subtree
+}
+
+
+        10
+       /  \
+     5     15
+    / \    /
+   2   7  12
+
+Preorder Traversal would visit:
+Root → 10
+
+Left Subtree → 5 → 2 → 7
+
+Right Subtree → 15 → 12
+
+✅ Output: 10 5 2 7 15 12
+
+
+
+IN-ORDER TRAVERSAL: left-->root-->right
+
+In a Binary Search Tree, inorder traversal gives elements in sorted order.
+Useful for printing, validating, or extracting values from a BST.
+
+        10
+       /  \
+      5    15
+     / \     \
+    2   7     20
+
+✅ Inorder Traversal Output:
+2 5 7 10 15 20
+
+void inorder(Node root) {
+    if (root == null) return;
+
+    inorder(root.left);          // 1. Visit left subtree
+    System.out.print(root.data + " "); // 2. Visit root
+    inorder(root.right);         // 3. Visit right subtree
+}
+
+
+Breadth-First Search(BFS):
+
+BFS (Breadth-First Search) is a traversal algorithm that:
+Explores level by level
+Visits all neighbors before going deeper
+Uses a queue to keep track of nodes to visit
+
+✅ Works for both:
+Trees
+Graphs
+
+        1
+       / \
+      2   3
+     / \   \
+    4   5   6
+
+👉 BFS Traversal:
+1 → 2 → 3 → 4 → 5 → 6
+
+📦 BFS Uses a Queue
+✅ BFS Algorithm (for Binary Tree):
+1.Start with the root
+2.Add it to a queue
+3.While the queue is not empty:
+	a.Remove the front node
+	b.Process it
+	c.Add its left and right children (if any) to the queue
+
+void bfs(Node root) {
+    if (root == null) return;
+
+    Queue<Node> queue = new LinkedList<>();
+    queue.add(root);
+
+    while (!queue.isEmpty()) {
+        Node current = queue.poll(); // remove front of queue
+        System.out.print(current.data + " ");
+
+        if (current.left != null)
+            queue.add(current.left);
+        if (current.right != null)
+            queue.add(current.right);
+    }
+}
+
+
+
+
+
