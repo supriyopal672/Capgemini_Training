@@ -8,10 +8,10 @@ public class Student extends Person {
 		this.studentID = studentID;
 	}
 
-	public void displayInfo() {
+	public void displayStudentInfo() {
 
 		System.out.println("Student ID: "+studentID);
-		super.displayInfo();
+		displayInfo();
 	}
 
 }
